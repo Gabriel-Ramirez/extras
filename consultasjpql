@@ -1,0 +1,11 @@
+select c from Cometario c where c.idUsuario="1" GROUP BY c.idComentario
+
+SELECT r.idCategoria, r.nombre, COUNT(r) as cat FROM Post p JOIN p.idCategoria r GROUP BY r HAVING ( COUNT(r) >= ALL(SELECT COUNT(p.idCategoria) FROM Post p GROUP BY p.idCategoria ))
+
+SELECT r.idCategoria, r.nombre, COUNT(r) as cat FROM Post p JOIN p.idCategoria r GROUP BY r HAVING ( COUNT(r) <= ALL(SELECT COUNT(p.idCategoria) FROM Post p GROUP BY p.idCategoria))
+
+SELECT DISTINCT u.nombres, jp.titulo, FUNCTION('to_char',jp.fecha,'MM/DD/YYYY') FROM Usuario u, PostPaso p JOIN p.post jp WHERE u.idUsuario = p.idUsuario
+
+select p.idCategoria, p.titulo, p.descripcion FROM Post p JOIN p.idCategoria as cat WHERE cat.idCategoria = '1'
+
+SELECT t.nombre, s.nombre, tp.peso FROM TipoSeccion t, Seccion AS s, TipoPostSeccion AS tp
