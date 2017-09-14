@@ -1,0 +1,1 @@
+SELECT p, t.nombre FROM Seccion s, TipoSeccion t JOIN s.idTipoSeccion p WHERE t.idTipoSeccion = p.idTipoSeccion
