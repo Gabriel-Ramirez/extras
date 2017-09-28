@@ -9,3 +9,5 @@ SELECT DISTINCT u.nombres, jp.titulo, FUNCTION('to_char',jp.fecha,'MM/DD/YYYY') 
 select p.idCategoria, p.titulo, p.descripcion FROM Post p JOIN p.idCategoria as cat WHERE cat.idCategoria = '1'
 
 SELECT t.nombre, s.nombre, tp.peso FROM TipoSeccion t, Seccion AS s, TipoPostSeccion AS tp
+
+SELECT u.postPasoPK.idPost FROM PostPaso as u WHERE u.postPasoPK.idPost=1
