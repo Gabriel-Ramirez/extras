@@ -1,0 +1,63 @@
+instalar postgres
+sudo apt-get install postgresql
+
+ingresar desde el sistema a postgres
+sudo -i -u postgres
+
+ingresar atravez del cliente 
+psql
+
+ver lista de usarios 
+\du
+
+ver las bases de datos 
+\l
+
+usar base de datos 
+\c nombreDeLaBaseDeDatos
+
+ver las tablas de la base de datos 
+\d
+
+salir de postgres
+\q
+
+crear usuario estando dentro de postgres
+
+CREATE USER nombre de usuario PASSWORD 'password';
+
+Asignar rol de super usuario 
+ALTER ROLE nombredeusuario WITH SUPERUSER;
+
+Cambiar la contrasela de un usuario 
+ALTER ROLE nombreDeUsuario WITH PASSWORD 'nuevopassword';
+
+entrar como un usuaro diferente 
+psql -d base_datos -U nombre_usuario -W
+
+ psql -U postgres -d post2 -h localhost -f /home/gabriel/post2.backup
+ 
+ 
+DOCKER COMPOSE 
+ 
+Para limpiar contenedores:
+docker rm -f $(docker ps -a -q)
+
+
+Para borrar imágenes:
+docker rmi -f $(docker images -a -q)
+
+
+Para borrar volúmenes:
+docker volume rm $(docker volume ls -q)
+
+Para borrar las redes:
+docker network rm $(docker network ls | tail -n+2 | awk '{if($2 !~ /bridge|none|host/){ print $1 }}')
+
+Ver que aplicion usa el puerto 5432
+sudo netstat -p -nlp | grep 5432
+
+
+
+
+
